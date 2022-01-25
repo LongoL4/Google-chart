@@ -2,33 +2,223 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {
-        'packages':['geochart'],
+      google.charts.load('current', {'packages':['geochart'],
       });
+      // Load Charts and the corechart package.
+      google.charts.load("current", {packages:["corechart"]});
+
+      // Draw the pie chart for Sarah's pizza when Charts is loaded.
       google.charts.setOnLoadCallback(drawRegionsMap);
 
+      // Draw the pie chart for the Anthony's pizza when Charts is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that draws the pie chart for Sarah's pizza.
       function drawRegionsMap() {
+
         var data = google.visualization.arrayToDataTable([
           ['Country', 'WBL'],
-          ['Germany', 200],
-          ['United States', 300],
-          ['Brazil', 400],
-          ['Canada', 500],
-          ['Africa', 600],
-          ['RU', 700]
+          ['Afghanistan', 38.1],
+          ['Angola', 73.1],
+          ['Albania', 91.3],
+          ['United Arab Emirates', 82.5],
+          ['Argentina', 76.3],
+          ['Armenia', 82.5],
+          ['Antigua and Barbuda', 66.3],
+          ['Australia', 96.9],
+          ['Austria', 96.9],
+          ['Azerbaijan', 78.8],
+          ['Burundi', 73.1],
+          ['Belgium', 100.0],
+          ['Benin', 77.5],
+          ['Burkina Faso', 79.4],
+          ['Bangladesh', 49.4],
+          ['Bulgaria', 90.6],
+          ['Bahrain', 55.6],
+          ['Bahamas', 81.3],
+          ['Bosnia and Herzegovina', 85.0],
+          ['Belarus', 81.3],
+          ['Belize', 81.3],
+          ['Bolivia', 81.3],
+          ['Brazil', 81.3],
+          ['Barbados', 81.3],
+          ['Brunei Darussalam', 81.3],
+          ['Bhutan', 81.3],
+          ['Botswana', 81.3],
+          ['Central African Republic', 81.3],
+          ['Canada', 81.3],
+          ['Switzerland', 81.3],
+          ['Chile', 81.3],
+          ['China', 81.3],
+          ['Ivory Coast', 81.3],
+          ['Cameroon', 81.3],
+          ['Congo', 81.3],
+          ['Colombia', 81.3],
+          ['Comoros', 81.3],
+          ['Cabo Verde', 81.3],
+          ['Costa Rica', 81.3],
+          ['Cyprus', 55.6],
+          ['Czech Republic', 55.6],
+          ['Germany', 55.6],
+          ['Djibouti', 55.6],
+          ['Dominica', 55.6],
+          ['Denmark', 55.6],
+          ['Dominican Republic', 55.6],
+          ['Algeria', 55.6],
+          ['Ecuador', 55.6],
+          ['Egypt.', 55.6],
+          ['Eritrea', 55.6],
+          ['Spain', 55.6],
+          ['Estonia', 55.6],
+          ['Ethiopia', 55.6],
+          ['Finland', 55.6],
+          ['Fiji', 55.6],
+          ['France', 55.6],
+          ['Micronesia', 55.6],
+          ['Gabon', 55.6],
+          ['United Kingdom', 55.6],
+          ['Georgia', 55.6],
+          ['Ghana', 55.6],
+          ['Guinea', 55.6],
+          ['Gambia', 55.6],
+          ['Guinea-Bissau', 55.6],
+          ['Equatorial Guinea', 55.6],
+          ['Greece', 55.6],
+          ['Grenada', 55.6],
+          ['Guatemala', 55.6],
+          ['Guyana', 55.6],
+          ['Hong Kong', 55.6],
+          ['Honduras', 55.6],
+          ['Croatia', 55.6],
+          ['Haiti', 55.6],
+          ['Hungary', 55.6],
+          ['Indonesia', 55.6],
+          ['India', 55.6],
+          ['Ireland', 55.6],
+          ['Iran', 55.6],
+          ['Iraq', 55.6],
+          ['Iceland', 55.6],
+          ['Israel', 55.6],
+          ['Italy', 55.6],
+          ['Jamaica', 55.6],
+          ['Jordan', 55.6],
+          ['Japan', 55.6],
+          ['Kazakhstan', 55.6],
+          ['Kenya', 55.6],
+          ['Kyrgyz Republic', 55.6],
+          ['Cambodia', 55.6],
+          ['Kiribati', 55.6],
+          ['St. Kitts and Nevis', 55.6],
+          ['Korea', 55.6],
+          ['Kosovo', 55.6],
+          ['Kuwait', 55.6],
+          ['Lao PDR', 55.6],
+          ['Lebanon', 55.6],
+          ['Liberia', 55.6],
+          ['Libya', 55.6],
+          ['St. Lucia', 55.6],
+          ['Sri Lanka', 55.6],
+          ['Lesotho', 55.6],
+          ['Lithuania', 55.6],
+          ['Luxembourg', 55.6],
+          ['Latvia', 55.6],
+          ['Morocco', 55.6],
+          ['Moldova', 55.6],
+          ['Madagascar', 55.6],
+          ['Maldives', 55.6],
+          ['Mexico', 55.6],
+          ['Marshall Islands', 55.6],
+          ['North Macedonia', 55.6],
+          ['Mali', 55.6],
+          ['Malta', 55.6],
+          ['Myanmar', 55.6],
+          ['Montenegro', 55.6],
+          ['Mongolia', 55.6],
+          ['Mozambique', 55.6],
+          ['Mauritania', 55.6],
+          ['Mauritius', 55.6],
+          ['Malawi', 55.6],
+          ['Malaysia', 55.6],
+          ['Namibia', 55.6],
+          ['Niger', 55.6],
+          ['Nigeria', 55.6],
+          ['Netherlands', 55.6],
+          ['Norway', 55.6],
+          ['Nepal', 55.6],
+          ['New Zealand', 55.6],
+          ['Oman', 55.6],
+          ['Pakistan', 55.6],
+          ['Panama', 55.6],
+          ['Peru', 55.6],
+          ['Philippines', 55.6],
+          ['Palau', 55.6],
+          ['Papua New Guinea', 55.6],
+          ['Poland', 55.6],
+          ['Puerto Rico (U.S.)', 55.6],
+          ['Portugal', 55.6],
+          ['Paraguay', 55.6],
+          ['Qatar', 55.6],
+          ['Romania', 55.6],
+          ['Russia', 55.6],
+          ['Rwanda', 55.6],
+          ['Saudi Arabia', 55.6],
+          ['Sudan', 55.6],
+          ['Senegal', 55.6],
+          ['Singapore', 55.6],
+          ['Solomon Islands', 55.6],
+          ['Sierra Leone', 55.6],
+          ['El Salvador', 55.6],
+          ['San Marino', 55.6],
+          ['Somalia', 55.6],
+          ['Serbia', 55.6],
+          ['South Sudan', 55.6],
+          ['Sao Tome and Principe', 55.6],
+          ['Qatar', 55.6],
+          ['Qatar', 55.6],
+          ['Qatar', 55.6],
+          ['Qatar', 55.6],
+          ['Qatar', 55.6],
+          ['Qatar', 55.6],
+          ['Qatar', 55.6],
+          ['Qatar', 55.6],
+          ['Qatar', 55.6],
+
+          
+
         ]);
 
-        var options = {
-          colors: ['#FF0000']
-        };
+        var options = {};
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
+        chart.draw(data, options);
+      }
+
+      // Callback that draws the pie chart for Anthony's pizza.
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'WBL'],
+          ['Afghanistan', 38.1],
+          ['Angola', 73.1],
+          ['Albania', 91.3],
+          ['United Arab Emirates', 82.5],
+          ['Argentina', 76.3],
+          ['Armenia', 82.5]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
         chart.draw(data, options);
       }
     </script>
   </head>
   <body>
     <div id="regions_div" style="width: 900px; height: 500px;"></div>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
   </body>
 </html>
